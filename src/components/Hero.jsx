@@ -1,11 +1,12 @@
-import { motion } from "framer-motion";
 
+import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+import heroImage from "../assets/hero.png";
 
 const Hero = () => {
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
+    <section className={`relative w-full min-h-screen mx-auto`}>
       <div
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
@@ -15,22 +16,33 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915EFF]'>Zainab</span>
-          </h1>
+           <h1 className={`${styles.heroHeadText} text-white`}>
+             Hi, I'm <span className='text-[#915EFF]'>Zainab</span>
+           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop scalable full-stack <br className='sm:block hidden' />
-web applications and <br className='sm:block hidden' /> powerful backend systems
-          </p>
-        </div>
-      </div>
+             I develop scalable full-stack <br className='sm:block hidden' />
+ web applications and <br className='sm:block hidden' /> powerful backend systems
+           </p>
+         </div>
+       </div>
 
-      <ComputersCanvas />
+       {/* Desktop Canvas */}
+<div className="hidden md:block w-full h-screen">
+  <ComputersCanvas />
+</div>
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
+{/* Mobile Image */}
+<div className="md:hidden flex justify-center items-end pt-72 px-2 ">
+  <img
+    src={heroImage}
+    alt="hero"
+    className="w-[95%] max-w-[380px] h-[280px] object-contain"
+  />
+</div>
+       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+         <a href='#about'>
+           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+             <motion.div
               animate={{
                 y: [0, 24, 0],
               }}
@@ -49,3 +61,5 @@ web applications and <br className='sm:block hidden' /> powerful backend systems
 };
 
 export default Hero;
+
+
